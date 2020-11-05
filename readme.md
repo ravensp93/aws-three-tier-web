@@ -1,4 +1,7 @@
+#Three-Tier Infrastructure Setup
+Learn to setup a highly redundant three-tier web application cloud infrastructure.
 
+##Architecture 
 <p align="center">
   <img src="https://github.com/ravensp93/aws-three-tier-web/blob/master/blob/aws-poc-1-arch.PNG">
 </p>
