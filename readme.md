@@ -7,6 +7,10 @@ Learn to setup a highly redundant three-tier web application cloud infrastructur
   <img src="https://github.com/ravensp93/aws-three-tier-web/blob/master/blob/aws-poc-1-arch.PNG">
 </p>
 
+Phases | Description
+[Stage 1]() | Bastion Host Setup with ASG 
+[Stage 2]() | Front-End Tier Setup with ALB & ASG
+[Stage 3]() | 
 
 Highly Redundant/scalable Bastion/3 tier Web Architecture (Backend/Storage Process not included)
 
