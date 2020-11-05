@@ -9,9 +9,9 @@ Learn to setup a highly redundant three-tier web application cloud infrastructur
 
 Phases | Description
 ------------ | -------------
-[Stage 1]() | Bastion Host Setup with ASG 
-[Stage 2]() | Front-End Tier Setup with ALB & ASG
-[Stage 3]() | 
+[Stage 1](https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/readme.md) | Bastion Host Setup with ASG 
+[Stage 2](https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%202/readme.md)  | Front-End Tier Setup with ALB & ASG
+[Stage 3](https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%203/readme.md)  | 
 
 Highly Redundant/scalable Bastion/3 tier Web Architecture (Backend/Storage Process not included)
 
