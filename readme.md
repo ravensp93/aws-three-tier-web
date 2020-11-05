@@ -1,4 +1,4 @@
-![alt text](https://github.com/ravensp93/aws-three-tier-web/blob/master/aws-poc-1-arch.PNG?raw=true)
+![alt text](https://github.com/ravensp93/aws-three-tier-web/blob/master/blob/aws-poc-1-arch.PNG)
 
 
 Highly Redundant/scalable Bastion/3 tier Web Architecture (Backend/Storage Process not included)
