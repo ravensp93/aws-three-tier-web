@@ -8,6 +8,7 @@ Learn to setup a highly redundant three-tier web application cloud infrastructur
 </p>
 
 Phases | Description
+------------ | -------------
 [Stage 1]() | Bastion Host Setup with ASG 
 [Stage 2]() | Front-End Tier Setup with ALB & ASG
 [Stage 3]() | 
