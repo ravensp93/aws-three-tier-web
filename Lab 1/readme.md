@@ -13,7 +13,7 @@ Configure a VPC network hosting public and private subnet on different availabil
 
 ## Blueprint
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/Stage-1-vpc-subnet-arch.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-vpc-subnet-arch.PNG>
 </p>
 
 ## VPC Configuration
@@ -27,7 +27,7 @@ Configure a VPC network hosting public and private subnet on different availabil
 5) Click **Create VPC** 
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-1.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-1.PNG>
 </p>
 
 ### DNS Hostname assignment
@@ -35,12 +35,12 @@ By enabling **DNS Hostnames**, EC2 Instances created with public IP within this 
 
 6) Right click the created VPC, Click on **Edit DNS Hostnames**
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-2.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-2.PNG>
 </p>
 
 7) Click **Enable** Checkbox and save the changes.
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-3.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-3.PNG>
 </p>
 
 ## Subnet Configuration
@@ -58,7 +58,7 @@ public-subnet-2 | 10.0.3.0/24 | ap-southeast-1b
 1) In **VPC** services page, navigate to **Subnets** page and click on **Create subnet**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-4.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-4.PNG>
 </p>
 
 2) Tag Subnet with a **name < private-subnet-1 >**
@@ -68,13 +68,13 @@ public-subnet-2 | 10.0.3.0/24 | ap-southeast-1b
 6) Click **Create**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-5.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-5.PNG>
 </p>
 
 7) Create the other three subnets
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-6.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-6.PNG>
 </p>
 
 **Reserved Addresses for Subnets:**
@@ -91,27 +91,27 @@ Internet Gateway allows internet access to your VPC
 1) In **VPC** services page, navigate to **Internet Gateways** page and click on **Create internet gateway**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-10.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-10.PNG>
 </p>
 
 2) **Optional** Tag Internet Gateway with a **name** 
 3) Click **Create Internet gateway**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-11.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-11.PNG>
 </p>
 
 4) Right-click the created Internet gateway and click on **Attach to VPC**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-12.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-12.PNG>
 </p>
 
 5) Select **Available VPC** to attach to <3-tier-vpc>
 6) Click on **Attach Internet Gateway**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-13.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-13.PNG>
 </p>
 
 ## NAT gateway 
@@ -122,7 +122,7 @@ but prevent the internet from initiating a connection with those instances
 1) In **VPC** services page, navigate to **NAT Gateways** page and click on **Create NAT gateway**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-7.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-7.PNG>
 </p>
 
 2) **Optional** Tag NAT Gateway with a **name** 
@@ -131,7 +131,7 @@ but prevent the internet from initiating a connection with those instances
 5) Click **Create NAT gateway**
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-8.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-8.PNG>
 </p>
 
 ## Routing Configuration
@@ -147,7 +147,7 @@ Name Tag |  Routes
 - A **main** Default Route table is created for every VPC. All subnet without assigned route tables will be assigned to the main default route table.
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-9.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-9.PNG>
 </p>
 
 2) **Optional** Tag route table with a **name <3-tier-pub-rt>** 
@@ -156,7 +156,7 @@ Name Tag |  Routes
 5) Create route table for public subnet
 
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-15.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-15.PNG>
 </p>
 
 
