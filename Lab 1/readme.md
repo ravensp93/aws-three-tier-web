@@ -114,8 +114,7 @@ Internet Gateway allows internet access to your VPC
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-13.PNG>
 </p>
 
-## NAT gateway 
-
+## NAT gateway **:Pre requisite: After route to internet has been configured for public subnet**
 NAT gateway enable instances in a private subnet to connect to the internet or other AWS services, 
 but prevent the internet from initiating a connection with those instances
 
@@ -175,11 +174,31 @@ Name Tag |  Route Configuration
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-17.PNG>
 </p>
 
-10) Edit route for **3-tier-priv-rt**
-11) Click **Add route**
-12) Set **Destination** to **0.0.0.0/0**, **Target: <NAT Gateway>** 
-13) Click **Save routes** 
+10) Right click on **3-tier-pub-rt**, select **Edit subnet associations**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-19.PNG>
+</p>
+
+11) Select both the **public subnets**
+12) Click **Save**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-20.PNG>
+</p>
+
+**:Pre requisite: After NAT Gateway has been configured for public subnet**
+13) Edit route for **3-tier-priv-rt**
+14) Click **Add route**
+15) Set **Destination** to **0.0.0.0/0**, **Target: <NAT Gateway>** 
+16) Click **Save routes** 
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-18.PNG>
+</p>
+
+17) Associate **Route Table <3-tier-priv-rt>** to both private subnets
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-21.PNG>
 </p>
