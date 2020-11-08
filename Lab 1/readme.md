@@ -19,7 +19,7 @@ Configure a VPC network hosting public and private subnet on different availabil
 ## VPC Configuration
 
 1) In **VPC** services page, navigate to **Your VPCs** page and click on **Create VPC**
-2) Tag VPC resource with a **name** <3-tier-vpc>
+2) Tag VPC resource with a **name** 3-tier-vpc
 3) set **IPv4 CIDR block IP** to **10.0.0.0/16**
 4) **Extra Options:**
 - **IPv6 CIDR block:** For assignment of IPv6 Network Address
@@ -61,9 +61,9 @@ public-subnet-2 | 10.0.3.0/24 | ap-southeast-1b
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-4.PNG>
 </p>
 
-2) Tag Subnet with a **name < private-subnet-1 >**
-3) Select **VPC:** <3-tier-vpc>
-4) Select **Availability Zone** <ap-southeast-1a>
+2) Tag Subnet with a **name: private-subnet-1**
+3) Select **VPC:** 3-tier-vpc
+4) Select **Availability Zone** ap-southeast-1a
 5) set **IPv4 CIDR block IP** to **10.0.0.0/24**
 6) Click **Create**
 
@@ -107,7 +107,7 @@ Internet Gateway allows internet access to your VPC
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-12.PNG>
 </p>
 
-5) Select **Available VPC** to attach to <3-tier-vpc>
+5) Select **Available VPC** to attach to 3-tier-vpc
 6) Click on **Attach Internet Gateway**
 
 <p align=center>
@@ -128,7 +128,7 @@ but prevent the internet from initiating a connection with those instances
 </p>
 
 2) **Optional** Tag NAT Gateway with a **name** 
-3) Select **subnet:** <public-subnet-2>. Selection can be either of the **Public** subnets
+3) Select **subnet:** public-subnet-2. Selection can be either of the **Public** subnets
 4) Select an **existing Elastic IP** or click on **allocate Elastic IP**
 5) Click **Create NAT gateway**
 
@@ -152,7 +152,7 @@ Name Tag |  Route Configuration
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-9.PNG>
 </p>
 
-2) **Optional** Tag route table with a **name <3-tier-pub-rt>** 
+2) **Optional** Tag route table with a **name: 3-tier-pub-rt** 
 3) Select **VPC:** <3-tier-vpc>
 4) Click on **Create**
 5) Create route table for **public subnet**
@@ -170,7 +170,7 @@ Name Tag |  Route Configuration
 </p>
 
 7) Click **Add route**
-8) Set **Destination** to **0.0.0.0/0**, **Target: <Internet Gateway>** 
+8) Set **Destination** to **0.0.0.0/0**, **Target: Internet Gateway** 
 9) Click **Save routes** 
 
 <p align=center>
@@ -190,17 +190,17 @@ Name Tag |  Route Configuration
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-20.PNG>
 </p>
 
-**:Pre requisite: After NAT Gateway has been configured for public subnet**\
+**Pre requisite: After NAT Gateway has been configured for public subnet**\
 13) Edit route for **3-tier-priv-rt**
 14) Click **Add route**
-15) Set **Destination** to **0.0.0.0/0**, **Target: <NAT Gateway>** 
+15) Set **Destination** to **0.0.0.0/0**, **Target: NAT Gateway** 
 16) Click **Save routes** 
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-18.PNG>
 </p>
 
-17) Associate **Route Table <3-tier-priv-rt>** to both private subnets
+17) Associate **Route Table: 3-tier-priv-rt** to both private subnets
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-21.PNG>
