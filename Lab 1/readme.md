@@ -1,8 +1,9 @@
-# Stage 1: VPC & Subnet Configuration
+# Lab 1: VPC & Subnet Configuration
 - <a href=#introduction>Introduction</a>
 - <a href=#blueprint>Blueprint</a>
 - <a href=#vpc-configuration>VPC Configuration</a>
 - <a href=#subnet-configuration>Subnet Configuration</a>
+- <a href=#internet-gateway>Internet Gateway</a>
 - <a href=#nat-gateway>NAT Gateway</a>
 - <a href=#routing-configuration>Routing Configuration</a>
 
@@ -77,16 +78,46 @@ public-subnet-2 | 10.0.3.0/24 | ap-southeast-1b
 </p>
 
 **Reserved Addresses for Subnets:**
-- 10.0.0.0 Network Address.
+- 10.0.0.0 Network Address
 - 10.0.0.1 Reserved by AWS for the VPC router
-- 10.0.0.2 Reserved by AWS.
-- 10.0.0.3: Reserved by AWS for future use.
-- 10.0.0.255: Network broadcast address, but not supported by AWS in a VPC.
+- 10.0.0.2 Reserved by AWS
+- 10.0.0.3: Reserved by AWS for future use
+- 10.0.0.255: Network broadcast address, but not supported by AWS in a VPC
+
+## Internet Gateway
+
+Internet Gateway allows internet access to your VPC
+
+1) In **VPC** services page, navigate to **Internet Gateways** page and click on **Create internet gateway**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-10.PNG>
+</p>
+
+2) **Optional** Tag Internet Gateway with a **name** 
+3) Click **Create Internet gateway**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-11.PNG>
+</p>
+
+4) Right-click the created Internet gateway and click on **Attach to VPC**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-12.PNG>
+</p>
+
+5) Select **Available VPC** to attach to <3-tier-vpc>
+6) Click on **Attach Internet Gateway**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-13.PNG>
+</p>
 
 ## NAT gateway 
 
 NAT gateway enable instances in a private subnet to connect to the internet or other AWS services, 
-but prevent the internet from initiating a connection with those instances.
+but prevent the internet from initiating a connection with those instances
 
 1) In **VPC** services page, navigate to **NAT Gateways** page and click on **Create NAT gateway**
 
@@ -94,8 +125,8 @@ but prevent the internet from initiating a connection with those instances.
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-7.PNG>
 </p>
 
-2) **Optional** Tag NAT Gateway with a **name < private-subnet-1 >**
-3) Select **subnet:** <public-subnet-2>. Selection can be either of the **Public** subnets. 
+2) **Optional** Tag NAT Gateway with a **name** 
+3) Select **subnet:** <public-subnet-2>. Selection can be either of the **Public** subnets
 4) Select an **existing Elastic IP** or click on **allocate Elastic IP**
 5) Click **Create NAT gateway**
 
@@ -105,5 +136,27 @@ but prevent the internet from initiating a connection with those instances.
 
 ## Routing Configuration
 
+Using routing tables assign to subnets, allow public and private subnets to have internet access through the VPC's Internet gateway and the NAT gateway in the public subnet
+
+Name Tag |  Routes
+------------ | -------------
+3-tier-pub-rt | 10.0.0.0/24 \n test
+3-tier-priv-rt |
+
+1) In **VPC** services page, navigate to **Route Tables** page and click on **Create route table**
+- A **main** Default Route table is created for every VPC. All subnet without assigned route tables will be assigned to the main default route table.
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-9.PNG>
+</p>
+
+2) **Optional** Tag route table with a **name <3-tier-pub-rt>** 
+3) Select **VPC:** <3-tier-vpc>
+4) Click on **Create**
+5) Create route table for public subnet
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Stage%201/blob/stage-1-pic-15.PNG>
+</p>
 
 
