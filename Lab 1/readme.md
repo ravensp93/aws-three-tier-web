@@ -114,7 +114,10 @@ Internet Gateway allows internet access to your VPC
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-13.PNG>
 </p>
 
-## NAT gateway **:Pre requisite: After route to internet has been configured for public subnet**
+## NAT gateway 
+
+**Pre requisite: After route to internet has been configured for public subnet**
+
 NAT gateway enable instances in a private subnet to connect to the internet or other AWS services, 
 but prevent the internet from initiating a connection with those instances
 
@@ -187,7 +190,7 @@ Name Tag |  Route Configuration
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-20.PNG>
 </p>
 
-**:Pre requisite: After NAT Gateway has been configured for public subnet**
+**:Pre requisite: After NAT Gateway has been configured for public subnet**\
 13) Edit route for **3-tier-priv-rt**
 14) Click **Add route**
 15) Set **Destination** to **0.0.0.0/0**, **Target: <NAT Gateway>** 
