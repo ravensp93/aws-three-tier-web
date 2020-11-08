@@ -19,8 +19,8 @@ Configure a VPC network hosting public and private subnet on different availabil
 2) Tag **VPC resource** with a **name** <3-tier-vpc>
 3) set **IPv4 CIDR block IP** to **10.0.0.0/16**
 4) Extra Options:
-**IPv6 CIDR block:** For assignment of IPv6 Network Address
-**Tenancy:** Dedicated tenancy ensures all EC2 instances that are launched in a VPC run on hardware that's dedicated to a single customer 
+- **IPv6 CIDR block:** For assignment of IPv6 Network Address
+- **Tenancy:** Dedicated tenancy ensures all EC2 instances that are launched in a VPC run on hardware that's dedicated to a single customer 
 5) Click **Create VPC** 
 
 <p align=center>
