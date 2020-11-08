@@ -5,7 +5,7 @@
 - <a href=#subnet-configuration>Subnet Configuration</a>
 - <a href=#internet-gateway>Internet Gateway</a>
 - <a href=#nat-gateway>NAT Gateway</a>
-- <a href=#routing-configuration>Routing Configuration</a>
+- <a href=#route-table-configuration>Route Table Configuration</a>
 
 ## Introduction
 Configure a VPC network hosting public and private subnet on different availability zones.
@@ -134,14 +134,14 @@ but prevent the internet from initiating a connection with those instances
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-8.PNG>
 </p>
 
-## Routing Configuration
+## Route Table Configuration
 
 Using routing tables assign to subnets, allow public and private subnets to have internet access through the VPC's Internet gateway and the NAT gateway in the public subnet
 
-Name Tag |  Routes
+Name Tag |  Route Configuration
 ------------ | -------------
-3-tier-pub-rt | 10.0.0.0/24 \n test
-3-tier-priv-rt |
+3-tier-pub-rt | Route public subnets to access internet via Internet Gateway
+3-tier-priv-rt | Route private subnets to access internet via NAT Gateway 
 
 1) In **VPC** services page, navigate to **Route Tables** page and click on **Create route table**
 - A **main** Default Route table is created for every VPC. All subnet without assigned route tables will be assigned to the main default route table.
@@ -153,10 +153,33 @@ Name Tag |  Routes
 2) **Optional** Tag route table with a **name <3-tier-pub-rt>** 
 3) Select **VPC:** <3-tier-vpc>
 4) Click on **Create**
-5) Create route table for public subnet
+5) Create route table for **public subnet**
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-15.PNG>
 </p>
 
+### Route Creation
 
+6) Right-click on **3-tier-pub-rt**, Click **Edit routes**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-16.PNG>
+</p>
+
+7) Click **Add route**
+8) Set **Destination** to **0.0.0.0/0**, **Target: <Internet Gateway>** 
+9) Click **Save routes** 
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-17.PNG>
+</p>
+
+10) Edit route for **3-tier-priv-rt**
+11) Click **Add route**
+12) Set **Destination** to **0.0.0.0/0**, **Target: <NAT Gateway>** 
+13) Click **Save routes** 
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-18.PNG>
+</p>
