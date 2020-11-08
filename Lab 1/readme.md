@@ -191,10 +191,10 @@ Name Tag |  Route Configuration
 </p>
 
 **Pre requisite: After NAT Gateway has been configured for public subnet**\
-13) Edit route for **3-tier-priv-rt**
-14) Click **Add route**
-15) Set **Destination** to **0.0.0.0/0**, **Target: NAT Gateway** 
-16) Click **Save routes** 
+13) Edit route for **3-tier-priv-rt**\
+14) Click **Add route**\
+15) Set **Destination** to **0.0.0.0/0**, **Target: NAT Gateway** \
+16) Click **Save routes** \
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-18.PNG>
