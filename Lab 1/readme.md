@@ -8,7 +8,7 @@
 - <a href=#route-table-configuration>Route Table Configuration</a>
 
 ## Introduction
-Configure a VPC network hosting public and private subnet on different availability zones.
+Configure a VPC network hosting public and private subnet on different availability zones. Enable routing to the internet for subnets via route tables and aws gateway resources
 
 
 ## Blueprint
@@ -193,8 +193,8 @@ Name Tag |  Route Configuration
 **Pre requisite: After NAT Gateway has been configured for public subnet**\
 13) Edit route for **3-tier-priv-rt**\
 14) Click **Add route**\
-15) Set **Destination** to **0.0.0.0/0**, **Target: NAT Gateway** \
-16) Click **Save routes** \
+15) Set **Destination** to **0.0.0.0/0**, **Target: NAT Gateway**\
+16) Click **Save routes** 
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-18.PNG>
