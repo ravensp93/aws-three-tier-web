@@ -43,10 +43,13 @@ By enabling **DNS Hostnames**, EC2 Instances created with public IP within this 
 ## Subnet Configuration
 
 **Subnets to be configured:**
-- **Name Tag:** private-subnet-1 **IPv4 CIDR:** 10.0.0.0/24 **Availability Zone:** ap-southeast-1a
-- **Name Tag:** private-subnet-2 **IPv4 CIDR:** 10.0.1.0/24 **Availability Zone:** ap-southeast-1b
-- **Name Tag:** public-subnet-1 **IPv4 CIDR:** 10.0.2.0/24 **Availability Zone:** ap-southeast-1a
-- **Name Tag:** public-subnet-2 **IPv4 CIDR:** 10.0.3.0/24 **Availability Zone:** ap-southeast-1b
+
+Name Tag | IPv4 CIDR | Availability Zone
+------------ | ------------- | -------------
+private-subnet-1 | 10.0.0.0/24 | ap-southeast-1a
+private-subnet-2 | 10.0.1.0/24 | ap-southeast-1b
+public-subnet-1 | 10.0.2.0/24 | ap-southeast-1a
+public-subnet-2 | 10.0.3.0/24 | ap-southeast-1b
 
 1) In **VPC** services page, navigate to **Subnets** page and click on **Create subnet**
 
