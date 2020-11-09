@@ -222,8 +222,61 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id <Your Elast
 </p>
 ## Auto Scaling Group
 
+1) In **EC2** service page, navigate to **Auto Scaling Group** page and click on **Create An Auto Scaling group**
+
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-18.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-19.PNG>
 </p>
+
+2) Set **Auto Scaling Group name:** Bastion-Host-Recovery
+3) Select **Launch Template:** Bastion-Host-Recovery
+4) Click **Next**
+ 
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-20.PNG>
+</p>
+ 
+5) Select **VPC:** 3-tier-vpc
+6) Select **Subnets:** public-subnet-1 & public-subnet-2
+7) Click **Next**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-21.PNG>
+</p>
+
+8) Leave Options Default
+9) Click **Next**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-22.PNG>
+</p>
+
+10) Leave Options Default
+11) Click **Next**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-23.PNG>
+</p>
+
+12) Leave Options Default
+13) Click **Next**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-24.PNG>
+</p>
+
+14) **Optional** to add Tag
+15) Click **Next**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-25.PNG>
+</p>
+
+16) Click **Create Auto Scaling Group**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-26.PNG>
+</p>
+
 
 ## Private Key Forwarding (Putty/Pageant)
