@@ -20,7 +20,7 @@ Because of its exposure to potential attack, a bastion host must minimize the ch
 
 ## Blueprint
 <p align=center>
-  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-2-pic-1.PNG>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-1.PNG>
 </p>
 
 ```
