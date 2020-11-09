@@ -24,26 +24,6 @@ Because of its exposure to potential attack, a bastion host must minimize the ch
 </p>
 
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-                "ec2:ReleaseAddress",
-                "ec2:DisassociateAddress",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:AssociateAddress",
-                "ec2:AllocateAddress"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-
-```
 #!
 INSTANCE_ID=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/instance-id`\
 aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id eipalloc-0c42634b4d8252ded --allow-reassociation --region ap-southeast-1
@@ -67,7 +47,7 @@ An Elastic IP address is allocated to your AWS account, and is yours until you r
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-3.PNG>
 </p>
 
-**Note: Save the IP Address for accessing the instance and resource ID for cli attachment of elastic IP onto the bastion instance later**
+**Note: Save the IP Address for accessing the instance and resource ID for cli attachment of elastic IP onto the bastion host later**
 
 ## Key Pair
 A key pair, consisting of a private key and a public key, is a set of security credentials that you use to prove your identity when connecting to an instance.
@@ -78,7 +58,7 @@ A key pair, consisting of a private key and a public key, is a set of security c
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-4.PNG>
 </p>
 
-2) Tag VPC resource with a **name** bastion-keys
+2) Tag VPC resource with a **name:** bastion-keys
 3) Select **ppk** file format 
 4) Click **Create Key Pair**
 
@@ -86,12 +66,115 @@ A key pair, consisting of a private key and a public key, is a set of security c
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-32.PNG>
 </p>
 
-**Note: Key pair will be downloaded automatically on your browser, save it for accessing The instances later**
+**Note: Key pair will be downloaded automatically on your browser, save it for accessing the bastion host later**
 ## Security Group
+A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. They can be attached to certain resources such as EC2
+on AWS.
 
+1) In **EC2** service page, navigate to **Security Group** page and click on **Create security group**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-5.PNG>
+</p>
+
+2) Set **Security Group Name:** Bastion-SecG
+3) Set **Description:** Allows SSH For Bastion Host
+4) Under **Inbound Rules**, Click **Add rule**
+5) Select **Type:** SSH, **Source:** Custom 0.0.0.0/0 
+- **Note: the source should be set as trusted IPs only.**
+6) Click **Create security group**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-6.PNG>
+</p>
 ## IAM Policy
+A policy defines the AWS permissions that you can assign to a user, group, or role.
+
+In this section, we will create a policy to allow our bastion host to handle ElasticIPs resource 
+
+1) In **IAM** service page, navigate to **Policies** page and click on **Create policy**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-7.PNG>
+</p>
+
+2) Select the **JSON** tab, copy and paste the code below into the editor. 
+The following JSON object denotes an **Allow** for certain actions on other resources (e.g DisassociateAddress)
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:ReleaseAddress",
+                "ec2:DisassociateAddress",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:AssociateAddress",
+                "ec2:AllocateAddress"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+3) Click **Review policy** 
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-8.PNG>
+</p>
+
+4) Set **Name:** AllowEC2AccessENI
+5) Set **Description:** To Allow EC2 Instances to access ENI resources
+6) Click **Create Policy**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-9.PNG>
+</p>
 
 ## IAM Role
+IAM roles are a secure way to grant permissions to entities that you trust. Examples of entities include the following:
+- IAM user in another account
+- Application code running on an EC2 instance that needs to perform actions on AWS resources
+- An AWS service that needs to act on resources in your account to provide its features
+- Users from a corporate directory who use identity federation with SAML
+
+We are going to create a role for our EC2 and attach the previously created policy to it. This will allow any EC2 instances
+attached with this role to have permission to handle elastic IPs resource
+
+1) In **IAM** service page, navigate to **Roles** page and click on **Create Role**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-10.PNG>
+</p>
+
+2) Select **Type** as **AWS service**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-11.PNG>
+</p>
+
+3) Choose and Select **Use Case:** EC2 
+4) Click **Next: Permissions**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-12.PNG>
+</p>
+
+5) Attach **Permissions policy:** AllowEC2AccessENI
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-13.PNG>
+</p>
+
+6) Set **Role name:** Bastion-ENI
+7) Set **Role description:** Allow EC2 Instances to access ENI resources
+8) Click **Create role**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-14.PNG>
+</p>
 
 ## Launch Template
 
