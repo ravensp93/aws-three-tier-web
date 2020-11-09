@@ -254,6 +254,8 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id <Your Elast
 10) Leave Options Default
 11) Click **Next**
 
+**Note: Setting 1/1/1 capacity will ensure there is at least one bastion host up at a time**
+
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-23.PNG>
 </p>
@@ -265,7 +267,7 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id <Your Elast
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-24.PNG>
 </p>
 
-14) **Optional** to add Tag
+14) **Optional** to add **Tag:** Bastion-ASG
 15) Click **Next**
 
 <p align=center>
@@ -278,5 +280,33 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id <Your Elast
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-26.PNG>
 </p>
 
-
 ## Private Key Forwarding (Putty/Pageant)
+
+Download Putty & Pageant:
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+To Access Bastion Host, 
+
+1) Add **private key (ppk)** assigned to EC2 Instances in Launch Template into pageant
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-27.PNG>
+</p>
+
+2) Allow **Agent-forwarding** in Putty
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-28.PNG>
+</p>
+
+3) Specify **Hostname** as the ec2-user@{bastion host elastic IP}
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-29.PNG>
+</p>
+
+4) Click **Open**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-30.PNG>
+</p>
