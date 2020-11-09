@@ -8,7 +8,7 @@
 - <a href=#route-table-configuration>Route Table Configuration</a>
 
 ## Introduction
-Configure a VPC network hosting public and private subnet on different availability zones. Enable routing to the internet for subnets via route tables and aws gateway resources
+Configure a VPC network hosting public and private subnet on different availability zones. Enable access to the internet for subnets via route tables and aws gateway resources
 
 
 ## Blueprint
