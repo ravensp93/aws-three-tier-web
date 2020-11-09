@@ -220,8 +220,10 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id <Your Elast
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-18.PNG>
 </p>
-
-
 ## Auto Scaling Group
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-18.PNG>
+</p>
 
 ## Private Key Forwarding (Putty/Pageant)
