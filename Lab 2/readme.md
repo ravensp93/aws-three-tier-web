@@ -23,12 +23,6 @@ Because of its exposure to potential attack, a bastion host must minimize the ch
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-1.PNG>
 </p>
 
-```
-#!
-INSTANCE_ID=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/instance-id`\
-aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id eipalloc-0c42634b4d8252ded --allow-reassociation --region ap-southeast-1
-```
-
 ## Elastic IP
 
 An Elastic IP address is a static IPv4 address designed for dynamic cloud computing. By using an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account. 
@@ -81,7 +75,7 @@ on AWS.
 3) Set **Description:** Allows SSH For Bastion Host
 4) Under **Inbound Rules**, Click **Add rule**
 5) Select **Type:** SSH, **Source:** Custom 0.0.0.0/0 
-- **Note: the source should be set as trusted IPs only.**
+- **Note: Best Practice, the source should be set as trusted IPs only.**
 6) Click **Create security group**
 
 <p align=center>
@@ -177,6 +171,55 @@ attached with this role to have permission to handle elastic IPs resource
 </p>
 
 ## Launch Template
+
+1) In **EC2** service page, navigate to **Launch Templates** page and click on **Create launch template**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-31.PNG>
+</p>
+
+2) Set **Launch Template Name:** Bastion-Host-Recovery
+3) Select **AMI:** Amazon Linux 2 AMI
+4) Select **Instance Type:** t2.micro
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-15.PNG>
+</p>
+
+5) Set **Key pair:** bastion-keys (Previously Created)
+6) Set **Security Groups** Bastion-SecG (Previously Created)
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-16.PNG>
+</p>
+
+7) Under **advanced details**, select **IAM Instance profile:** Bastion-ENI (Previously Created)
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-17.PNG>
+</p>
+
+***User Data***
+When you launch an instance in Amazon EC2, you have the option of passing user data to the instance that can be used to perform common 
+automated configuration tasks and even run scripts after the instance has started
+
+**We will add a script for the launch template to use during automated EC2 instance creation. The script will use AWS CLI to attach
+an elastic IP to it. This ensures the bastion host that is created to always have the same IP for access**
+
+8) Under **User data**, Add the following script.  
+
+```
+#!
+INSTANCE_ID=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/instance-id`\
+aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id <Your ElasticIP ID> --allow-reassociation --region ap-southeast-1
+```
+
+9) Click **Create launch template**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-18.PNG>
+</p>
+
 
 ## Auto Scaling Group
 
