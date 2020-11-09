@@ -43,6 +43,8 @@ By enabling **DNS Hostnames**, EC2 Instances created with public IP within this 
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-3.PNG>
 </p>
 
+8) **Enable DNS Hostname assignment for both PUBLIC subnets**
+
 ## Subnet Configuration
 
 Create subnets to segregate resources into public and private zones. Subnets will be created in two different availability zones for
