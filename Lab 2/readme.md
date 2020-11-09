@@ -1,4 +1,4 @@
-# Lab 2: VPC & Subnet Configuration
+# Lab 2: Bastion Host Configuration
 - <a href=#introduction>Introduction</a>
 - <a href=#blueprint>Blueprint</a>
 - <a href=#elastic-ip>Elastic IP</a>
@@ -23,7 +23,7 @@ Because of its exposure to potential attack, a bastion host must minimize the ch
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-2-pic-1.PNG>
 </p>
 
-
+```
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -41,11 +41,13 @@ Because of its exposure to potential attack, a bastion host must minimize the ch
         }
     ]
 }
+```
 
+```
 #!
-INSTANCE_ID=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/instance-id`
+INSTANCE_ID=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/instance-id`\
 aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id eipalloc-0c42634b4d8252ded --allow-reassociation --region ap-southeast-1
-
+```
 
 ## Elastic IP
 
