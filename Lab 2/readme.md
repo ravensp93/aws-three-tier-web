@@ -206,7 +206,8 @@ automated configuration tasks and even run scripts after the instance has starte
 **We will add a script for the launch template to use during automated EC2 instance creation. The script will use AWS CLI to attach
 an elastic IP to it. This ensures the bastion host that is created to always have the same IP for access**
 
-8) Under **User data**, Add the following script.  
+8) Under **User data**, Add the following script. 
+**Note: Change < Your ElasticIP ID > to your previously created elastic IP's resource ID. **
 
 ```
 #!
