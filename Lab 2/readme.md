@@ -287,19 +287,19 @@ https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 To Access Bastion Host, 
 
-1) Add **private key (ppk)** assigned to EC2 Instances in Launch Template into pageant
+1) Open **Pageant**, add **private key (ppk)** assigned to EC2 Instances in Launch Template 
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-27.PNG>
 </p>
 
-2) Allow **Agent-forwarding** in Putty
+2) Open **Putty**, Under **Conncetion > SSH > Auth**, Allow **Agent-forwarding** in Putty
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-28.PNG>
 </p>
 
-3) Specify **Hostname** as the ec2-user@{bastion host elastic IP}
+3) In **Putty**, Under **Session**, Specify **Hostname** as the ec2-user@{bastion host elastic IP}
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-29.PNG>
