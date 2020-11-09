@@ -282,11 +282,13 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id <Your Elast
 </p>
 
 ## Private Key Forwarding (Putty/Pageant)
+For Secure Connection to Linux Instances Running in a Private Amazon VPC through Bastion Host
+https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-running-in-a-private-amazon-vpc/
 
 Download Putty & Pageant:
 https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
-To Access Bastion Host, 
+You can SSH to any Instances as long as the private key is added into **Pageant** 
 
 1) Open **Pageant**, add **private key (ppk)** assigned to EC2 Instances in Launch Template 
 
