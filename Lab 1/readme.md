@@ -18,7 +18,7 @@ Configure a VPC network hosting public and private subnet on different availabil
 
 ## VPC Configuration
 
-1) In **VPC** services page, navigate to **Your VPCs** page and click on **Create VPC**
+1) In **VPC** service page, navigate to **Your VPCs** page and click on **Create VPC**
 2) Tag VPC resource with a **name** 3-tier-vpc
 3) set **IPv4 CIDR block IP** to **10.0.0.0/16**
 4) **Extra Options:**
@@ -57,7 +57,7 @@ private-subnet-2 | 10.0.1.0/24 | ap-southeast-1b
 public-subnet-1 | 10.0.2.0/24 | ap-southeast-1a
 public-subnet-2 | 10.0.3.0/24 | ap-southeast-1b
 
-1) In **VPC** services page, navigate to **Subnets** page and click on **Create subnet**
+1) In **VPC** service page, navigate to **Subnets** page and click on **Create subnet**
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-4.PNG>
@@ -90,7 +90,7 @@ public-subnet-2 | 10.0.3.0/24 | ap-southeast-1b
 
 Internet Gateway allows internet access to your VPC
 
-1) In **VPC** services page, navigate to **Internet Gateways** page and click on **Create internet gateway**
+1) In **VPC** service page, navigate to **Internet Gateways** page and click on **Create internet gateway**
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-10.PNG>
@@ -120,10 +120,10 @@ Internet Gateway allows internet access to your VPC
 
 **Pre requisite: After route to internet has been configured for public subnet**
 
-NAT gateway enable instances in a private subnet to connect to the internet or other AWS services, 
+NAT gateway enable instances in a private subnet to connect to the internet or other AWS service, 
 but prevent the internet from initiating a connection with those instances
 
-1) In **VPC** services page, navigate to **NAT Gateways** page and click on **Create NAT gateway**
+1) In **VPC** service page, navigate to **NAT Gateways** page and click on **Create NAT gateway**
 
 <p align=center>
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%201/blob/lab-1-pic-7.PNG>
@@ -147,7 +147,7 @@ Name Tag |  Route Configuration
 3-tier-pub-rt | Route public subnets to access internet via Internet Gateway
 3-tier-priv-rt | Route private subnets to access internet via NAT Gateway 
 
-1) In **VPC** services page, navigate to **Route Tables** page and click on **Create route table**
+1) In **VPC** service page, navigate to **Route Tables** page and click on **Create route table**
 - A **main** Default Route table is created for every VPC. All subnet without assigned route tables will be assigned to the main default route table.
 
 <p align=center>

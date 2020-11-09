@@ -51,8 +51,42 @@ aws ec2 associate-address --instance-id $INSTANCE_ID --allocation-id eipalloc-0c
 
 ## Elastic IP
 
-## Key Pair
+An Elastic IP address is a static IPv4 address designed for dynamic cloud computing. By using an Elastic IP address, you can mask the failure of an instance or software by rapidly remapping the address to another instance in your account. 
+An Elastic IP address is allocated to your AWS account, and is yours until you release it.
 
+1) In **EC2** service page, navigate to **Elastic IPs** page and click on **Allocate Elastic IP address**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-2.PNG>
+</p>
+
+2) Use **default options** (Use Amazon's Pool of IPv4 Addresses)
+3) Click "Allocate"
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-3.PNG>
+</p>
+
+**Note: Save the IP Address for accessing the instance and resource ID for cli attachment of elastic IP onto the bastion instance later**
+
+## Key Pair
+A key pair, consisting of a private key and a public key, is a set of security credentials that you use to prove your identity when connecting to an instance.
+
+1) In **EC2** service page, navigate to **Key Pairs** page and click on **Create Key Pair**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-4.PNG>
+</p>
+
+2) Tag VPC resource with a **name** bastion-keys
+3) Select **ppk** file format 
+4) Click **Create Key Pair**
+
+<p align=center>
+  <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-32.PNG>
+</p>
+
+**Note: Key pair will be downloaded automatically on your browser, save it for accessing The instances later**
 ## Security Group
 
 ## IAM Policy
