@@ -201,7 +201,7 @@ attached with this role to have permission to handle elastic IPs resource
 
 ***User Data***
 
-\When you launch an instance in Amazon EC2, you have the option of passing user data to the instance that can be used to perform common 
+<br>When you launch an instance in Amazon EC2, you have the option of passing user data to the instance that can be used to perform common 
 automated configuration tasks and even run scripts after the instance has started
 
 **We will add a script for the launch template to use during automated EC2 instance creation. The script will use AWS CLI to attach
