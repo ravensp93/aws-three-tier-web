@@ -199,7 +199,7 @@ attached with this role to have permission to handle elastic IPs resource
   <img src=https://github.com/ravensp93/aws-three-tier-web/blob/master/Lab%202/blob/lab-2-pic-17.PNG>
 </p>
 
-***User Data***
+***User Data***\
 When you launch an instance in Amazon EC2, you have the option of passing user data to the instance that can be used to perform common 
 automated configuration tasks and even run scripts after the instance has started
 
